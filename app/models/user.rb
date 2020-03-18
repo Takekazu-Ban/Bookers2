@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # UserとBookの関連付け (1:N)の関係
-  has_many:books, dependent: :destroy
+  # Userとの関連付け (1:N)の関係
+  has_many :books, dependent: :destroy
+  # 画像投稿機能
+  attachment :profile_image
 end
+
