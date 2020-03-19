@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # 投稿・一覧設定
   def index
-      # Viewへ渡すためのインスタンス変数に空のモデルオブジェクトを生成する。
+     # Viewへ渡すためのインスタンス変数に空のモデルオブジェクトを生成する。
     @book = Book.new
      # 全てのデータを取り出して、格納
     @books = Book.all

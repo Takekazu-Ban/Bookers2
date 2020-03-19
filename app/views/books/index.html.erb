@@ -1,22 +1,26 @@
 
+
+
+
+
 <!-- 新規投稿部分 -->
 <h2>New book</h2>
 <!-- form_for部分 -->
 <%= form_for(@book, url: '/books') do |f| %>
 
-<!-- 投稿・更新時にサクセスメッセージ表示 -->
-<% if flash[:notice] %>
-  <div class = "flash">
+  <!-- 投稿・更新時にサクセスメッセージ表示 -->
+  <% if flash[:notice] %>
+    <div class = "flash">
     <%= flash[:notice] %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 
-<!-- エラーメッセージ -->
-<% if flash[:alert] %>
-  <div class = "flash">
+  <!-- エラーメッセージ -->
+  <% if flash[:alert] %>
+   <div class = "flash">
     <%= flash[:alert] %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 
 <!-- タイトル記入 -->
 <h5>Title</h5>
@@ -28,7 +32,6 @@
 
 <br><%= f.submit 'Create Book' %>
 <% end %>
-
 
 
 <!-- 一覧表示部分 -->
@@ -56,11 +59,11 @@
       <!-- 詳細ボタン -->
       <td> <%= link_to "Show",book_path(book.id) %> </td>
       <td></td>
-      <!-- 編集ボタン 
+      <!-- 編集ボタン -->
       <td> <%= link_to "Edit",edit_book_path(book.id) %></td>
       <td></td>
-       削除ボタン 
-      <td> <%= link_to "Destroy",book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>-->
+       <!-- 削除ボタン -->
+      <td> <%= link_to "Destroy",book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
       </td>
     </tr>
 

@@ -8,5 +8,8 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   # 画像投稿機能
   attachment :profile_image
+
+  # sign_in sig_up 名前入力設定 (空白禁止、２〜２０字以内)
+  validates :name, presence: true, uniqueness: true, length: 2..20
 end
 

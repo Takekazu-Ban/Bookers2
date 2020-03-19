@@ -1,50 +1,10 @@
 <!-- プロフィール画像の表示 -->
 <div class="profile-container">
     <h3 class="profile-name"><%= @user.name %></h3>
-    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", image: "no_image.jpg" %>
+    <%= @user.introduction %>
+    <%= attachment_image_tag @user,:profile_image, :fill,60,60,format'jpeg', class: "img-circle pull-left profile-img",fallback:"no_image.jpg" %>
+    <!--<%= image_tag('no_image.jpg',class:"img-circle pull-left profile-img",style:"width: 100px; hight: 100px;") %>-->
     <% if @user.id == current_user.id %>
-      <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+      <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>c
     <% end %>
 </div>
-
-<section class="sct-color-1 slice">
-  <div class="container-fluid masonry-container">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2">
-        <div class="masonry-wrapper-cols">
-          <div class="masonry-gutter"></div>
-          <% @books.each do |book| %>
-            <div class="masonry-block">
-              <div class="block block-image v1">
-                <div class="block-image">
-                  <div class="view view-first">
-                    <%= link_to book_path(book.id) do %>
-                      <%= attachment_image_tag book, :image %>
-                    <% end %>
-                  </div>
-                </div>
-                <div class="block-content">
-                  <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-thumb" %>
-                  <h3 class="block-title">
-                    <%= link_to book_path(post_image.id) do %>
-                      <i class="fa fa-map-marker"></i><%= book.title %>
-                    <% end %>
-                  </h3>
-                  <p><%= book.caption %></p>
-                  <ul class="inline-meta">
-                    <li>By
-                      <%= book.user.name %>
-                    </li>
-                    <li>
-                    <a href="#">23 コメント</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
